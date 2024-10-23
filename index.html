@@ -1,62 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting to AnimalBitsUnity...</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting to DonkeyBits Game...</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #4caf50; /* Green background color */
-            font-family: 'Arial', sans-serif;
-            color: white;
-            text-align: center;
-            transition: background-color 0.5s;
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #414856; 
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #wifi-loader {
+        --background: #62abff;
+        --front-color: #ef4d86;
+        --front-color-in: #fbb216;
+        --back-color: #c3c8de;
+        --text-color: #414856;
+        height: 64px;
+        border-radius: 50px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #wifi-loader svg {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      #wifi-loader svg circle {
+        position: absolute;
+        fill: none;
+        stroke-width: 6px;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        transform: rotate(-100deg);
+        transform-origin: center;
+      }
+
+      #wifi-loader svg circle.back {
+        stroke: var(--back-color);
+      }
+
+      #wifi-loader svg circle.front {
+        stroke: var(--front-color);
+      }
+
+      #wifi-loader svg.circle-outer {
+        height: 86px;
+        width: 86px;
+      }
+
+      #wifi-loader svg.circle-outer circle {
+        stroke-dasharray: 62.75 188.25;
+      }
+
+      #wifi-loader svg.circle-outer circle.back {
+        animation: circle-outer135 1.8s ease infinite 0.3s;
+      }
+
+      #wifi-loader svg.circle-outer circle.front {
+        animation: circle-outer135 1.8s ease infinite 0.15s;
+      }
+
+      #wifi-loader svg.circle-middle {
+        height: 60px;
+        width: 60px;
+      }
+
+      #wifi-loader svg.circle-middle circle {
+        stroke: var(--front-color-in);
+        stroke-dasharray: 42.5 127.5;
+      }
+
+      #wifi-loader svg.circle-middle circle.back {
+        animation: circle-middle6123 1.8s ease infinite 0.25s;
+      }
+
+      #wifi-loader svg.circle-middle circle.front {
+        animation: circle-middle6123 1.8s ease infinite 0.1s;
+      }
+
+      #wifi-loader .text {
+        position: absolute;
+        bottom: -40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: lowercase;
+        font-weight: 500;
+        font-size: 15px;
+        letter-spacing: 0.2px;
+      }
+
+      #wifi-loader .text::before,
+      #wifi-loader .text::after {
+        content: attr(data-text);
+      }
+
+      #wifi-loader .text::before {
+        color: var(--text-color);
+      }
+
+      #wifi-loader .text::after {
+        color: var(--front-color-in);
+        animation: text-animation76 3.6s ease infinite;
+        position: absolute;
+        left: 0;
+      }
+
+      @keyframes circle-outer135 {
+        0% {
+          stroke-dashoffset: 25;
         }
+        25% {
+          stroke-dashoffset: 0;
+        }
+        65% {
+          stroke-dashoffset: 301;
+        }
+        80% {
+          stroke-dashoffset: 276;
+        }
+        100% {
+          stroke-dashoffset: 276;
+        }
+      }
+
+      @keyframes circle-middle6123 {
+        0% {
+          stroke-dashoffset: 17;
+        }
+        25% {
+          stroke-dashoffset: 0;
+        }
+        65% {
+          stroke-dashoffset: 204;
+        }
+        80% {
+          stroke-dashoffset: 187;
+        }
+        100% {
+          stroke-dashoffset: 187;
+        }
+      }
+
+      @keyframes text-animation76 {
+        0% {
+          clip-path: inset(0 100% 0 0);
+        }
+        50% {
+          clip-path: inset(0);
+        }
+        100% {
+          clip-path: inset(0 0 0 100%);
+        }
+      }
+
+      h2 {
+        color: #f4f4f4;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+      }
+      @media (max-width: 600px) {
+        #wifi-loader {
+          width: 48px;
+          height: 48px;
+        }
+
+        #wifi-loader svg.circle-outer {
+          height: 66px;
+          width: 66px;
+        }
+
+        #wifi-loader svg.circle-middle {
+          height: 40px;
+          width: 40px;
+        }
+
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in-out;
+          font-size: 16px;
         }
-        p {
-            font-size: 1.2em;
-            animation: fadeIn 1.5s ease-in-out;
+      }
+
+      @media (max-width: 400px) {
+        #wifi-loader {
+          width: 36px;
+          height: 36px;
         }
-        a {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 1.2em;
-            text-decoration: none;
-            color: #4caf50; /* Button text color */
-            background-color: white; /* Button background color */
-            border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+
+        #wifi-loader svg.circle-outer {
+          height: 50px;
+          width: 50px;
         }
-        a:hover {
-            background-color: #f1f1f1; /* Button hover background color */
-            color: #4caf50; /* Button hover text color */
+
+        #wifi-loader svg.circle-middle {
+          height: 30px;
+          width: 30px;
         }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+
+        h2 {
+          font-size: 14px;
         }
+      }
     </style>
-</head>
-<body>
-    <div>
-        <h1>Welcome to AnimalBitsUnity!</h1>
-        <p>Redirecting you to the game...</p>
-        <a href="animalbits://onboarding-complete">click here</a>
+  </head>
+  <body>
+    <div id="wifi-loader">
+      <svg viewBox="0 0 86 86" class="circle-outer">
+        <circle r="40" cy="43" cx="43" class="back"></circle>
+        <circle r="40" cy="43" cx="43" class="front"></circle>
+        <circle r="40" cy="43" cx="43" class="new"></circle>
+      </svg>
+      <svg viewBox="0 0 60 60" class="circle-middle">
+        <circle r="27" cy="30" cx="30" class="back"></circle>
+        <circle r="27" cy="30" cx="30" class="front"></circle>
+      </svg>
+      <div data-text="Loading..." class="text"></div>
     </div>
-    <meta http-equiv="refresh" content="5; URL='animalbits://onboarding-complete'" />
-</body>
+    <br /><br />
+    <br /><br />
+    <h2>Redirecting to DonkeyBits Game</h2>
+    <script>
+      setTimeout(() => {
+        window.location.href = "animalbits://onboarding-complete";
+      }, 5000);
+    </script>
+  </body>
 </html>
